@@ -1,0 +1,26 @@
+{
+  "name": "rust-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elianbatista/rust-io.git"
+  },
+  "author": "Elian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elianbatista/rust-io/issues"
+  },
+  "homepage": "https://github.com/elianbatista/rust-io#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "p5": "^0.9.0",
+    "socket.io": "^2.2.0",
+    "uws": "^100.0.1",
+  }
+}
