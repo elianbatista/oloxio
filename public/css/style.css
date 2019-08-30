@@ -1,0 +1,241 @@
+.none {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+}
+
+body {
+  
+  background: #c62828;
+  background: -moz-linear-gradient(-45deg, #c62828 0%, #6a1b9a 100%);
+  background: -webkit-linear-gradient(-45deg, #c62828 0%,#6a1b9a 100%);
+  background: linear-gradient(135deg, #c62828 0%,#6a1b9a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c62828', endColorstr='#6a1b9a',GradientType=1 );
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  overflow: hidden;
+  
+}
+canvas {
+  
+  overflow: hidden;
+}
+
+.box {
+  
+  position: absolute;
+  
+  top: 50%;
+  
+  left: 50%;
+  
+  transform: TranslateY(-50%) TranslateX(-50%);
+  
+  text-align: center;
+  
+}
+
+.box h1{
+  
+  font-family: 'Dosis', sans-serif;
+  
+  font-weight: 800;
+  
+  font-size: 40px;
+  
+  color: white;
+  
+}
+
+.sobre-nos {
+  
+  font-family: 'Dosis', sans-serif;
+  
+  font-weight: 800;
+  
+  color: #767676;
+  
+  padding: 5px 14px;
+  
+  background-color: white;
+  
+  position: absolute;
+  
+  top: 10px;
+  
+  left: 10px;
+  
+}
+
+.box a:hover {
+  
+  text-decoration: none;
+  
+} 
+
+.box .nome{
+  
+  font-family: 'Dosis', sans-serif;
+  
+  font-size: 20px;
+  
+  font-weight: 600;
+  
+  padding: 5px 10px;
+  
+  animation-name: intro;
+  
+  animation-duration: 2s;
+  
+  width: 340px;
+  
+  color: #767676;
+  
+  text-align: center;
+  
+  border: none;
+  
+}
+
+.box .nome:focus {
+  
+  outline: none;
+  
+}
+
+.informacoes {
+  
+  position: absolute;
+  
+  bottom: 10px;
+  
+  color: white;
+  
+  font-family: 'Dosis', sans-serif;
+  
+  text-transform: uppercase;
+  
+}
+
+.informacoes.left {
+  
+  left: 10px;
+  
+}
+
+.informacoes.right {
+  
+  right: 10px;
+  
+}
+
+.gui {
+
+  position: absolute;
+
+  width: 100%;
+
+  top: 10px;
+  
+  left: 10px;
+  
+  opacity: 0.9;
+
+  transition: all .2s ease-in-out;
+  
+  display: flex;
+  
+  align-items: center;
+
+}
+
+.gui .avatar {
+  
+  width: 100px;
+  
+  height: 100px;
+  
+  background-color: blue;
+  
+  border-radius: 100px;
+  
+  margin-right: 10px;
+  
+}
+
+.gui .life {
+
+  width: 300px;
+
+  height: 22px;
+
+  background-color: rgb(56, 56, 56);
+
+  border-radius: 30px;
+
+  padding: 5px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+}
+
+.gui .life .life-content {
+
+  height: 17px;
+
+  width: 100%;
+
+  background-color: red;
+
+  border-radius: 30px;
+
+}
+
+.gui .nome {
+
+  font-family: 'Roboto', sans-serif;
+
+  font-weight: 900;
+
+  font-size: 40px;
+
+  -webkit-text-stroke-width: 2px;
+
+  -webkit-text-stroke-color: rgb(48, 48, 48);
+
+  color: white;
+
+  line-height: 34px;
+
+}
+
+@keyframes intro {
+  
+  0%{
+    
+    margin-top: 200px;
+    
+    opacity: 0;
+    
+  }
+  
+  50%{
+    
+    opacity: 1;
+    
+  }
+  
+  100%{
+    
+    margin-top: 0px;
+    
+  }
+  
+}

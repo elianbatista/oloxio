@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-1784856168357465",
+            enable_page_level_ads: true
+          });
+        </script> 
+      
+       <meta charset="UTF-8">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+       <meta name="description" content="Play Olox.io, a top down shooter web gaming, try to be the best! Kill squares and maximize your power to destroy your enemys.">
+  
+       <meta name="keywords" content="tank, agar, agario, diep, diepio, shooter, top, down, shot, rpg, browser, game, grátis, free, 4free">
+
+       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+       <!-- Includes do CSS -->
+
+       <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+
+       <link rel="stylesheet" href="css/style.css">
+  
+       <link href="https://fonts.googleapis.com/css?family=Dosis:400,500,600,700,800&display=swap" rel="stylesheet">
+
+       <link href="https://fonts.googleapis.com/css?family=Roboto:700,900&display=swap" rel="stylesheet">
+
+       <!-- Fim dos Includes do CSS -->
+
+       <title>olox.io</title>
+
+</head>
+
+<body oncontextmenu="return false;">
+  
+        <a href="/about-us.html">
+           
+           <div class="sobre-nos">About Us</div>
+
+         </a>
+  
+       <div class="box">
+      
+         <h1>olox</h1>
+         
+         <input type="text" class="nome" placeholder="Digite seu Apelido" autofocus>
+         
+         
+         
+       </div>
+  
+      <a href="/about-us.html"><div class="informacoes left">© 2019 Hiperdice</div></a>
+  
+      <div class="informacoes right">Alpha 0.1</div>
+  
+      <div class="gui none" align="center">
+        
+        <div class="avatar"></div>
+        
+        <div class="gui-content">
+
+          <div class="nome"></div>
+
+          <div class="life">
+
+            <div class="life-content"></div>
+
+          </div>
+        
+        </div>
+        
+        
+      </div>
+  
+      </div> 
+  
+      <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+  
+       <script src="/socket.io/socket.io.js"></script>
+       <script src="/js/p5/p5.min.js"></script>
+       <script src="/js/p5/p5.play.js"></script>
+  
+        <script>
+                     
+               var socket = io();
+
+        </script>
+
+       
+       
+       <script src="/js/arena.js"></script>
+       <script src="/js/clientSocket.js"></script>
+       <script src="/js/fruit.js"></script>
+       <script src="/js/player.js"></script>
+       <script src="/js/spell.js"></script>
+       <script src="/js/main.js"></script>
+       <script src="/js/life.js"></script>
+      
+        <script>
+          
+        $(document).ready(function(){
+          
+          var frases = [
+            
+            "A beautiful day for playing olox.io!",
+            
+            "which is your favorite flavor of cake?",
+            
+            "Elian < Gobbi",
+            
+            "Elian > Gobbi",
+            
+            "I love you <3!",
+
+            "Which is the best fortnite youtuber?",
+
+            "Which is the best character on friends?",
+
+            "",
+
+            "What is the best song of katy perry?"
+
+          ];
+          
+          var number = Math.floor(Math.random() * frases.length);
+          
+          $('.nome').attr({placeholder: frases[number]});
+          
+        });
+  
+        document.querySelector('body').addEventListener('keydown', function(event) {
+          
+          if(event.keyCode == 13){
+
+            $(".gui").removeClass("none");
+
+            $(".box").fadeOut();
+            
+            $(".sobre-nos").fadeOut();
+            
+            var nome = $(".box .nome").val();
+           
+            console.log(socket,nome);
+            socket.emit('criarArena', nome, 'hunter');
+            
+            $(".gui .nome").text(nome);
+            
+            //GUIAtualizarLife();
+            
+          }
+          
+        });
+          
+        function GUIAtualizarLife(){
+            if(world && world.playerPrincipal){
+              $('.gui .life .life-content').css({width: (world.playerPrincipal.life) + "%"});
+            }
+          }
+        
+      </script>
+  
+</body>
+
+</html>
