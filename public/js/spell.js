@@ -38,8 +38,13 @@ class spell {
     }
     display() {
         if (this.checkLife()) {
+<<<<<<< HEAD
             fill(0, 0, 255);
             circle(this.pos.x, this.pos.y, 20);
+=======
+            fill(170, 0, 200);
+            circle(this.pos.x, this.pos.y, this.size);
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         }
     }
     checkLife() {

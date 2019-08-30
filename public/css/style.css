@@ -8,6 +8,7 @@
 
 body {
   
+<<<<<<< HEAD
   background: #c62828;
   background: -moz-linear-gradient(-45deg, #c62828 0%, #6a1b9a 100%);
   background: -webkit-linear-gradient(-45deg, #c62828 0%,#6a1b9a 100%);
@@ -15,6 +16,9 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c62828', endColorstr='#6a1b9a',GradientType=1 );
   background-size: cover;
   background-repeat: no-repeat;
+=======
+  background-color: #AA00FF;
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
   
   overflow: hidden;
   
@@ -50,6 +54,7 @@ canvas {
   
 }
 
+<<<<<<< HEAD
 .sobre-nos {
   
   font-family: 'Dosis', sans-serif;
@@ -76,6 +81,8 @@ canvas {
   
 } 
 
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 .box .nome{
   
   font-family: 'Dosis', sans-serif;
@@ -90,6 +97,7 @@ canvas {
   
   animation-duration: 2s;
   
+<<<<<<< HEAD
   width: 340px;
   
   color: #767676;
@@ -98,6 +106,14 @@ canvas {
   
   border: none;
   
+=======
+  width: 300px;
+  
+  color: #AA00FF;
+  
+  text-align: center;
+  
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 }
 
 .box .nome:focus {
@@ -138,13 +154,18 @@ canvas {
 
   width: 100%;
 
+<<<<<<< HEAD
   top: 10px;
   
   left: 10px;
+=======
+  bottom: 10px;
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
   
   opacity: 0.9;
 
   transition: all .2s ease-in-out;
+<<<<<<< HEAD
   
   display: flex;
   
@@ -166,6 +187,11 @@ canvas {
   
 }
 
+=======
+
+}
+
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 .gui .life {
 
   width: 300px;

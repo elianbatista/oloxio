@@ -2,7 +2,11 @@ class arena {
     constructor(_width, _height) {
         this.playerPrincipal;
         this.haveNewSocket = false;
+<<<<<<< HEAD
         this.players = {};
+=======
+        this.players = [];
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         this.bullets = [];
         this.name;
         this.fruits = [];
@@ -24,13 +28,25 @@ class arena {
     setName(name) {
         this.name = name;
     }
+<<<<<<< HEAD
     setPlayer(playerp) {
       
         this.playerPrincipal = new player(playerp.x, playerp.y, playerp.id);
+=======
+    randomFruit() {
+        return new food(random(-this.size.width, this.size.width),
+            random(-this.size.height, this.size.height))
+    }
+    setPlayer(player) {
+
+        this.playerPrincipal = player;
+
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
     }
     getDelta() {
         return this.deltaTime / 1000;
     }
+<<<<<<< HEAD
     setFruits(n) {
         socket.emit('createFruits', n);
     }
@@ -55,6 +71,28 @@ class arena {
           //  } else {
                // this.setPlayer(new player(players[key].x, players[key].y, players[key].id));
             //}
+=======
+    setRandomFruit() {
+        this.fruits.push(new food(random(-this.size.width, this.size.width),
+            random(-this.size.height, this.size.height)));
+    }
+    setFruits(n) {
+        /*
+        for (var i = 0; i < n; i++) {
+            this.setRandomFruit();
+        }
+        */
+        socket.emit('createFruits', n);
+    }
+    createPlayers(protPlayers) {
+        for (let p of protPlayers) {
+
+            if (p.id != socket.id) {
+                this.players.push(new protPlayer(p.name, p.x, p.x, p.id, p.size, p.mousex, p.mousey))
+            } else {
+                this.setPlayer(new player(p.x, p.y, p.id));
+            }
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
         }
         this.haveNewSocket = true;
@@ -63,21 +101,28 @@ class arena {
     getPlayer() {
         return this.playerPrincipal;
     }
+<<<<<<< HEAD
     drawFakeBullets() {
         for (let p of this.playerPrincipal.bullets) {
             fill(0, 0, 255);
             circle(p.x, p.y, 20);
         }
     }
+=======
+
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
     drawBullets() {
         for (let p of this.bullets) {
             fill(0, 0, 255);
             circle(p.x, p.y, 20);
         }
     }
+<<<<<<< HEAD
     Collide_AABB_Circle() {
 
     }
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
     update() {
         this.deltaTime = this.newTime - this.oldTime;
         this.oldTime = this.newTime;
@@ -100,7 +145,11 @@ class arena {
             }
 
         });
+<<<<<<< HEAD
 
+=======
+        //...
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
         socket.on('spawnFruits', function (arrayFruits) {
             for (let i = 0; i < arrayFruits.length; i++) {
@@ -108,11 +157,19 @@ class arena {
                     //let pos = createVector(arrayFruits[i].x, arrayBullets[i].y)
                     let _fruit = new protFruit(arrayFruits[i].pos.x, arrayFruits[i].pos.y,
                         arrayFruits[i].size,
+<<<<<<< HEAD
                         arrayFruits[i].rotate, 100, 0);
                     world.fruits[i] = _fruit;
                 } else {
                     world.fruits[i].x = lerp(world.fruits[i].x, arrayFruits[i].x, 0.1);
                     world.fruits[i].y = lerp(world.fruits[i].y, arrayFruits[i].y, 0.1);
+=======
+                        arrayFruits[i].rotate, arrayFruits[i].life, arrayFruits[i].debug);
+                    world.fruits[i] = _fruit;
+                } else {
+                    world.fruits[i].x = arrayFruits[i].x;
+                    world.fruits[i].y = arrayFruits[i].y;
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
                 }
             }
             for (let i = arrayFruits.length; i < world.fruits.length; i++) {
@@ -122,9 +179,71 @@ class arena {
             }
         });
 
+<<<<<<< HEAD
         this.drawBullets();
         this.drawFruits();
 
+=======
+
+        this.drawBullets();
+        this.drawFruits();
+        /*
+        const center = createVector(0, 0);
+        this.quadFruits = new quadFood(center, this.size.width * 2, this.size.height * 2);
+
+
+        let i = 0
+        let j = 0;
+
+        for (let fruit of this.fruits) {
+            if (fruit.state == foodState.DEAD) {
+                this.fruits.splice(i, 1);
+                continue;
+            }
+            fruit.update();
+            fruit.display();
+            this.collideAndPush(0.05, this.playerPrincipal, fruit, 1, 0);
+            j = 0;
+            for (let fruit2 of this.fruits) {
+                this.collideAndPush(0.1, fruit, fruit2, i, j);
+                j++;
+            }
+            const quick = 1.5;
+            let force = createVector(0, 0);
+            if (fruit.pos.x >= this.size.width - 20 || fruit.pos.x <= -this.size.width + 20) {
+                if (fruit.pos.x < 0) {
+                    force = createVector(1, 0);
+                    fruit.aplyForce(force, quick);
+                } else {
+                    force = createVector(-1, 0);
+                    fruit.aplyForce(force, quick);
+                }
+            }
+            if (fruit.pos.y > this.size.height - 20 || fruit.pos.y <= -this.size.height + 20) {
+                if (fruit.pos.y < 0) {
+                    force = createVector(0, 1);
+                    fruit.aplyForce(force, quick);
+                } else {
+                    force = createVector(0, -1);
+                    fruit.aplyForce(force, quick);
+                }
+            }
+            // fruit.aplyForce(force, quick);
+            if (fruit.state != foodState.DYING) {
+                this.quadFruits.insert(fruit)
+            }
+
+            i++;
+        }
+
+        this.playerPrincipal.update(camera.mouseX, camera.mouseY);
+        this.playerPrincipal.display();
+        this.collideBullets();
+
+        const quad = this.quadFruits.getQuadbyPos(camera.mouseX, camera.mouseY);
+        this.quadFruits.display();
+        */
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         this.playerPrincipal.update(camera.mouseX, camera.mouseY);
         this.playerPrincipal.display();
         this.drawPlayers();
@@ -135,6 +254,7 @@ class arena {
 
             translate(f.x, f.y);
             rotate(f.angle * PI / 180)
+<<<<<<< HEAD
             strokeWeight(2);
             stroke(0);
 
@@ -142,6 +262,27 @@ class arena {
             fill(50, 200, 50);
 
 
+=======
+            stroke(0);
+
+            if (f.debug) {
+                switch (f.debug) {
+                    case 0:
+                        fill(50, 200, 50);
+                        break;
+                    case 1:
+                        fill(200, 200, 50);
+                        break;
+                    case 2:
+                        fill(200, 0, 200);
+                        break;
+                }
+            } else {
+
+                fill(50, 200, 50);
+
+            }
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
             rect(0, 0, f.size, f.size);
             pop()
@@ -151,9 +292,15 @@ class arena {
 
     drawPlayers() {
 
+<<<<<<< HEAD
         for (let key in this.players) {
             push()
             this.players[key].display();
+=======
+        for (let p of this.players) {
+            push()
+            p.display();
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
             pop()
 
         }
@@ -212,6 +359,7 @@ class arena {
         fill(255, 255, 255);
         stroke(0);
         rect(0, 0, this.size.width * 2, this.size.height * 2)
+<<<<<<< HEAD
         const scale = 16;
         const offset = this.size.width / scale;
         strokeWeight(10);
@@ -226,6 +374,8 @@ class arena {
                 line(-this.size.width, i, this.size.width, i);
             }
         }
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         noStroke();
     }
 

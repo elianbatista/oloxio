@@ -1,9 +1,13 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 <html lang="pt-br">
 
 <head>
 
+<<<<<<< HEAD
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
           (adsbygoogle = window.adsbygoogle || []).push({
@@ -19,6 +23,11 @@
        <meta name="description" content="Play Olox.io, a top down shooter web gaming, try to be the best! Kill squares and maximize your power to destroy your enemys.">
   
        <meta name="keywords" content="tank, agar, agario, diep, diepio, shooter, top, down, shot, rpg, browser, game, grátis, free, 4free">
+=======
+       <meta charset="UTF-8">
+
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -34,12 +43,17 @@
 
        <!-- Fim dos Includes do CSS -->
 
+<<<<<<< HEAD
        <title>olox.io</title>
+=======
+       <title>Olox.io</title>
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
 </head>
 
 <body oncontextmenu="return false;">
   
+<<<<<<< HEAD
         <a href="/about-us.html">
            
            <div class="sobre-nos">About Us</div>
@@ -76,6 +90,29 @@
         
         </div>
         
+=======
+       <div class="box">
+      
+         <h1>Olox.io</h1>
+         
+         <input type="text" class="nome" placeholder="Digite seu Apelido" autofocus>
+         
+       </div>
+  
+      <div class="informacoes left">Desenvolvido por Elian Batista e Lucas Gobbi - 2019</div>
+  
+      <div class="informacoes right">BETA 1.0</div>
+  
+      <div class="gui none" align="center">
+
+        <div class="nome"></div>
+        
+        <div class="life">
+        
+          <div class="life-content"></div>
+          
+        </div>
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         
       </div>
   
@@ -93,6 +130,11 @@
         <script>
                      
                var socket = io();
+<<<<<<< HEAD
+=======
+            
+               //let socket = io.connect('https://elianbatista-rust-io.glitch.me/');
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
         </script>
 
@@ -107,6 +149,7 @@
        <script src="/js/life.js"></script>
       
         <script>
+<<<<<<< HEAD
           
         $(document).ready(function(){
           
@@ -137,6 +180,8 @@
           $('.nome').attr({placeholder: frases[number]});
           
         });
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
   
         document.querySelector('body').addEventListener('keydown', function(event) {
           
@@ -146,6 +191,7 @@
 
             $(".box").fadeOut();
             
+<<<<<<< HEAD
             $(".sobre-nos").fadeOut();
             
             var nome = $(".box .nome").val();
@@ -156,6 +202,18 @@
             $(".gui .nome").text(nome);
             
             //GUIAtualizarLife();
+=======
+            var nome = $(".box .nome").val();
+            
+            createWorld(nome);
+
+            socket.emit('conectei', nome);
+            
+            
+            $(".gui .nome").text(nome);
+            
+            GUIAtualizarLife();
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
             
           }
           

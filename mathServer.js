@@ -67,6 +67,7 @@ class vec2d {
            return (this.x * this.x + this.y * this.y);
     }
     fromAngle(angle, mag){
+<<<<<<< HEAD
            this.x = mag * Math.cos(angle);
            this.y = mag * Math.sin(angle);
     }
@@ -78,6 +79,14 @@ class vec2d {
     lerp(b, amt){
           this.x += (b.x - this.x) * amt || 0;
           this.y += (b.y - this.y) * amt || 0;
+=======
+           this.x = mag * Math.cos(angle)
+           this.y = mag * Math.sin(angle)
+    }
+    lerp(b, n){
+           this.x = (1-n)*this.x + n*b.x;
+           this.y = (1-n)*this.y + n*b.y;
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
     }
     object(){
            return {x: this.x, y: this.y};

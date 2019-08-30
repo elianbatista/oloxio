@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const vec2d = require('./mathServer.js');
 
 function randomInterval(min, max) {
@@ -103,3 +104,15 @@ class player {
 
 }
 module.exports = player;
+=======
+
+module.exports =  function (name, id, x, y, size) {
+    this.name = name;
+    this.x = x;
+    this.y = y;
+    this.size = size;
+    this.mousex = 0;
+    this.mousey = 0;
+    this.id = id;
+};
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46

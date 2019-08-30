@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //Emitir o player criado
 //Caso a sala ja tenha playerPrincipal ela adiciona mais um player;
 
@@ -39,4 +40,63 @@ socket.on('disconectPlayer', (disconectedID) => {
   if (world) {
     delete world.players[disconectedID];
   }
+=======
+socket.on('mensagem', function (mensagem) {
+
+    world.createPlayers(mensagem);
+
+});
+
+socket.on('updatePositions', (id, playerX, playerY, size, mousex, mousey) => {
+  
+    if(world){
+      
+      for (let p of world.players) {
+
+        if (p.id == id) {
+
+            p.pos.x = playerX;
+
+            p.pos.y = playerY;
+          
+            p.size = size;
+            
+            p.mira.x = mousex;
+          
+            p.mira.y = mousey;
+
+        }
+
+    }
+    }
+    
+
+});
+
+
+socket.on('newSocket', (newSocket) => {
+
+    world.players.push(new protPlayer(newSocket.name,
+                                      newSocket.x,
+                                      newSocket.y,
+                                      newSocket.id, 
+                                      newSocket.size,
+                                      newSocket.mousex,
+                                      newSocket.mousey));
+
+});
+
+socket.on('disconectPlayer', (disconectedID) => {
+
+    for (var i = 0; i < world.players.length; i++) {
+
+        if (world.players[i]['id'] == disconectedID) {
+
+            world.players.splice(i, 1);
+
+        }
+
+    }
+
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 });

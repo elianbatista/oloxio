@@ -4,7 +4,6 @@ const fruit = require('./fruitServer.js');
 function randomInterval(min, max) {
        return Math.random() * (max - min) + min;
 }
-
 class arena {
        constructor(width, height) {
               this.players = {};
@@ -27,24 +26,10 @@ class arena {
        havePlayers() {
               return this.playersCount == 0;
        }
-       getTime(optimize) {
-              if (!optimize) {
-                     this.runClock();
-              }
-              return this.newTime;
 
-       }
-       runClock() {
-              let d = new Date();
-              if (this.oldTime > this.newTime) {
-                     this.newTime += 60;
-              }
-              this.deltaTime = this.newTime - this.oldTime;
-              this.oldTime = this.newTime;
-              this.newTime = d.getSeconds() + d.getMilliseconds() / 1000;
-       }
-       updateBullets(io) {
-
+=======
+       updateBullets() {
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
               for (let i = this.bullets.length - 1; i >= 0; i--) {
                      if (this.bullets[i].life <= 0) {
                             this.bullets.splice(i, 1);
@@ -64,6 +49,7 @@ class arena {
 
                             this.bullets[i].x = pos.x;
                             this.bullets[i].y = pos.y;
+<<<<<<< HEAD
 
                             this.bullets[i].life = this.deltaTime * 1000;
 
@@ -96,22 +82,85 @@ class arena {
 
                      //this.quadFruit.insert(this.fruits[i].x,this.fruits[i].y);
               }
+=======
+                            this.bullets[i].life -= this.deltaTime * 1000;
+                     }
+
+              }
+       }
+
+
+       updateFruits() {
+              
+              let i = 0
+              let j = 0;
+              for (let f of this.fruits) {
+                     /*
+                     if (fruit.state == foodState.DEAD) {
+                            this.fruits.splice(i, 1);
+                            continue;
+                     }
+                     */
+                    f.update(this.width, this.height);
+
+                     //this.collideAndPush(0.05, this.playerPrincipal, fruit, 1, 0);
+                     j = 0;
+                     
+                     for (let b of this.fruits) {
+                            if (i == j) {
+                                   continue;
+                            }
+                            b.debug = 0;
+                            const dist = b.pos.dist(f.pos);
+                            if (dist < b.size / 2 + f.size / 2) {
+                                   let mov =  new vec2d(0,0);
+                                   mov.copy(b.pos);
+                                   mov.sub(f.pos);
+                                 
+                                   mov.normalize();
+
+                                   b.aplyForce(mov, dist * 0.1)
+                                 
+                                   j++;
+                                  
+                                   f.debug = 1;
+                                   b.debug = 2;
+                            }
+                     }
+                     
+                     /* f.aplyForce(force, quick);
+                     if (f.state != foodState.DYING) {
+                            this.quadfs.insert(f)
+                     }
+                     */
+                     i++;
+              }
+             
+           
+
+
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
        }
 
        createFruit() {
               this.fruits.push(new fruit(randomInterval(-this.width, this.width),
                      randomInterval(-this.height, this.height)))
        }
+<<<<<<< HEAD
        updatePlayers(){
               
        }
        update(io) {
               this.frame++;
+=======
+       update(io) {
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
               this.runClock();
               // console.log(this.newTime);
 
               this.updateFruits();
+<<<<<<< HEAD
               this.updateBullets(io);
 
               //EM CONSTRUCAO
@@ -132,6 +181,16 @@ class arena {
 function collideAndPush(a, b, sizeA, sizeB, force, options) {
 
 }
+=======
+              this.updateBullets()
+
+              io.emit("spawnBullets", this.bullets);
+              io.emit("spawnFruits", this.fruits);
+
+       }
+
+}
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 /*
 function updateBullets() {
        for (let i = arrayBulletsObject.length - 1; i >= 0; i--) {
@@ -156,6 +215,7 @@ function updateBullets() {
               bullet.life -= serverDeltaTime * 1000;
        }
 }
+<<<<<<< HEAD
 
 */
 class quadFood {
@@ -278,4 +338,7 @@ class quadFood {
               }
        }
 }
+=======
+*/
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 module.exports = arena;

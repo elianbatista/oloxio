@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 
 class player {
     constructor(x, y, id) {
         this.name;
         this.id = id;
+=======
+class player {
+    constructor(x, y, id) {
+        this.name;
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         this.pos = createVector(x, y);
         this.mira = createVector(x, y);
         this.dir = createVector(0, 0);
@@ -20,12 +26,21 @@ class player {
 
         this.bullets = [];
         this.bulletDamage = 25;
+<<<<<<< HEAD
         this.bulletLife = 5000
         this.bulletAcurac = 0.3
         this.bulletSpeed = 150
         this.bulletSize = 8;
 
         this.bulletTimer = new spellTimer(100);
+=======
+        this.bulletLife = 16000
+        this.bulletAcurac = 1.0
+        this.bulletSpeed = 400
+        this.bulletSize = 8;
+
+        this.bulletTimer = new spellTimer(300);
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
         this.hitTimer = new spellTimer(700);
     }
@@ -84,6 +99,7 @@ class player {
         }else{
             return new spell(pos, -angle, this.bulletSpeed, this.bulletLife, this.bulletDamage);
         }
+<<<<<<< HEAD
     }
     getStats(){
         
@@ -91,17 +107,34 @@ class player {
     shoot() {
         if (this.bulletTimer.checkTimer()) {
             let bullet = this.produceBullet(this);
+=======
+        
+    
+    }
+    shoot() {
+        if (this.bulletTimer.checkTimer()) {
+            const bullet = this.produceBullet(this);
+
+            //this.bullets.push(bullet);
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 
             this.bulletTimer.startTimer();
             
             socket.emit('newBullet', bullet.pos.x,
                               bullet.pos.y,
                               bullet.angle,
+<<<<<<< HEAD
                               socket.id
                               );
             //bullet.life = 140;
            // bullet.pos.sub(this.mira.copy().normalize().mult(25));
            // this.bullets.push(bullet);
+=======
+                              bullet.speed,
+                              bullet.life,
+                              bullet.damage
+                              );
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
           
         }
     }
@@ -166,7 +199,10 @@ class player {
 
             world.haveNewSocket = false;
             socket.emit('update',
+<<<<<<< HEAD
                 this.id,
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
                 parseInt(this.pos.x),
                 parseInt(this.pos.y),
                 parseInt(this.size),
@@ -204,12 +240,20 @@ class player {
     }
 }
 class protPlayer {
+<<<<<<< HEAD
     constructor(name, x, y, id, size) {
+=======
+    constructor(name, x, y, id, size, tx, ty) {
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
         this.pos = createVector(x, y);
         this.name = name;
         this.id = id;
         this.size = size;
+<<<<<<< HEAD
         this.mira = createVector(1,0);
+=======
+        this.mira = createVector(tx, ty);
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
     }
     display() {
         push()

@@ -4,8 +4,11 @@ function randomInterval(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+<<<<<<< HEAD
 //teste
 
+=======
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
 function lerpN(a, b, n) {
     return (1 - n) * a + n * b;
 }

@@ -29,7 +29,11 @@
         p5: "^0.9.0"
         socket.io: "^2.2.0"
         uws: "^100.0.1"
+<<<<<<< HEAD
       gitHead: "69627c28137e884f97361090a504d9bdb7287522"
+=======
+      gitHead: "7fba236cef17937fc5d6d5cef5e4170f1066d867"
+>>>>>>> 4bc522b585b1cdeb48c6de2bd795e164b3cc0c46
       readme: "ERROR: No README data found!"
       _id: "rust-io@1.0.0"
     prefix: "/app"
